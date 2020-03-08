@@ -11,6 +11,9 @@ app.use(cors());
 // Clash of clans...
 const clashRoutes = require('./clash/index');
 app.use('/clash', clashRoutes);
+// Clash royale...
+const royaleRoutes = require('./royale/index');
+app.use('/royale', royaleRoutes);
 
 /* Base information about the API */
 app.get('/', (req, res) => {
