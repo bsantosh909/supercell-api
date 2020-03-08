@@ -1,6 +1,6 @@
 {
   "name": "supercell-api",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Service to provide capability to overcome the static IP limitation of the supercell games API.",
   "main": "index.js",
   "scripts": {

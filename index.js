@@ -14,6 +14,9 @@ app.use('/clash', clashRoutes);
 // Clash royale...
 const royaleRoutes = require('./royale/index');
 app.use('/royale', royaleRoutes);
+// Brawl stars...
+const brawlRoutes = require('./brawl/index');
+app.use('/brawl', brawlRoutes);
 
 /* Base information about the API */
 app.get('/', (req, res) => {
