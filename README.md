@@ -9,6 +9,11 @@ Currently the above mentioned game API requires to have a static IP while genera
 
 > NOTE: This service is working for the above mentioned games, and is tested properly as well. You can have a look at the proof of concept linked at the top of the page.
 
+## ENABLING THE OFFICIAL API
+By default the API token fetching is disabled i.e. there is nothing working by default apart from the base route response. Keeping in mind that not everyone use every API, all the games API are disabled by default. You can selectively enable the ones you need by setting the respective game value true in `config.js`.
+
+After setting the value to true, all the official API routes be available for you as well.
+
 ## HOW IT WORKS ??
 This service simply logins to the developer portal at run time and generate a new key for the current IP of your device or host. All the API requests are made using the generated token now. The Service also checks if there is any key for the current host and also deletes old keys to not exceede the limit of keys for your developer account.
 

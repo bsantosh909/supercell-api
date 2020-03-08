@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { version } = require('./package.json');
+const { games } = require('./config');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -9,14 +10,20 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 
 // Clash of clans...
-const clashRoutes = require('./clash/index');
-app.use('/clash', clashRoutes);
+if (games.clash) {
+	const clashRoutes = require('./clash/index');
+	app.use('/clash', clashRoutes);
+}
 // Clash royale...
-const royaleRoutes = require('./royale/index');
-app.use('/royale', royaleRoutes);
+if (games.royale) {
+	const royaleRoutes = require('./royale/index');
+	app.use('/royale', royaleRoutes);
+}
 // Brawl stars...
-const brawlRoutes = require('./brawl/index');
-app.use('/brawl', brawlRoutes);
+if (games.brawl) {
+	const brawlRoutes = require('./brawl/index');
+	app.use('/brawl', brawlRoutes);
+}
 
 /* Base information about the API */
 app.get('/', (req, res) => {
@@ -29,6 +36,11 @@ app.get('/', (req, res) => {
 			name: 'Santosh Bhandari',
 			mail: 'contact@santoshb.com.np',
 			website: 'https://santoshb.com.np'
+		},
+		enabled: {
+			clash: games.clash,
+			royale: games.royale,
+			brawl: games.brawl
 		}
 	});
 })
