@@ -13,8 +13,8 @@ Currently the above mentioned game API requires to have a static IP while genera
 This service simply logins to the developer portal at run time and generate a new key for the current IP of your device or host. All the API requests are made using the generated token now. The Service also checks if there is any key for the current host and also deletes old keys to not exceede the limit of keys for your developer account.
 
 ## EXTRA INFORMATION
-- Currently the API has all the API routes covered for `clash of clans`
-- One can easily customize (add, delete, modify) API routes and their responses simply by visiting the `routes` folder in the the respective game folder (i.e. _clash_)
+- Currently the API has all the API routes covered for `clash of clans`, `clash royale` and `brawl stars`
+- One can easily customize (add, delete, modify) API routes and their responses simply by visiting the `routes` folder in the the respective game folder (i.e. _clash_, _royale_ or _brawl_)
 - One can setup custom authorization, save the responses to DB or anything as per the needs
 
 ## HOSTING OVER HEROKU

@@ -5,9 +5,12 @@ const express = require('express');
 const router = express.Router();
 
 const TokenHandler = require('../utils/tokener');
-const { clash } = require('../config');
+const { global, clash } = require('../config');
 
-const tokener = new TokenHandler(clash.mail, clash.password, 'https://developer.clashofclans.com/api');
+const mail = global.mail || clash.mail;
+const password = global.password || clash.password;
+
+const tokener = new TokenHandler(mail, password, 'https://developer.clashofclans.com/api');
 
 /* Performing all the operations of loading the routes and obtaining the API key */
 (async() => {

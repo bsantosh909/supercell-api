@@ -5,9 +5,12 @@ const express = require('express');
 const router = express.Router();
 
 const TokenHandler = require('../utils/tokener');
-const { royale } = require('../config');
+const { global, royale } = require('../config');
 
-const tokener = new TokenHandler(royale.mail, royale.password, 'https://developer.clashroyale.com/api');
+const mail = global.mail || royale.mail;
+const password = global.password || royale.password;
+
+const tokener = new TokenHandler(mail, password, 'https://developer.clashroyale.com/api');
 
 /* Performing all the operations of loading the routes and obtaining the API key */
 (async() => {

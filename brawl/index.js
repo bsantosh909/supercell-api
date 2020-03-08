@@ -5,9 +5,12 @@ const express = require('express');
 const router = express.Router();
 
 const TokenHandler = require('../utils/tokener');
-const { brawl } = require('../config');
+const { global, brawl } = require('../config');
 
-const tokener = new TokenHandler(brawl.mail, brawl.password, 'https://developer.brawlstars.com/api');
+const mail = global.mail || brawl.mail;
+const password = global.password || brawl.password;
+
+const tokener = new TokenHandler(mail, password, 'https://developer.brawlstars.com/api');
 
 /* Performing all the operations of loading the routes and obtaining the API key */
 (async() => {
