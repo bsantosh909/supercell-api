@@ -7,8 +7,8 @@ const router = express.Router();
 const TokenHandler = require('../utils/tokener');
 const { global, royale } = require('../config');
 
-const mail = global.mail || royale.mail;
-const password = global.password || royale.password;
+const mail = process.env.GLOBAL_MAIL || process.env.ROYALE_MAIL || global.mail || royale.mail;
+const password = process.env.GLOBAL_PASS || process.env.ROYALE_PASS || global.password || royale.password;
 
 const tokener = new TokenHandler(mail, password, 'https://developer.clashroyale.com/api');
 

@@ -7,8 +7,8 @@ const router = express.Router();
 const TokenHandler = require('../utils/tokener');
 const { global, clash } = require('../config');
 
-const mail = global.mail || clash.mail;
-const password = global.password || clash.password;
+const mail = process.env.GLOBAL_MAIL || process.env.CLASH_MAIL || global.mail || clash.mail;
+const password = process.env.GLOBAL_PASS || process.env.CLASH_PASS || global.password || clash.password;
 
 const tokener = new TokenHandler(mail, password, 'https://developer.clashofclans.com/api');
 

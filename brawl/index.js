@@ -7,8 +7,8 @@ const router = express.Router();
 const TokenHandler = require('../utils/tokener');
 const { global, brawl } = require('../config');
 
-const mail = global.mail || brawl.mail;
-const password = global.password || brawl.password;
+const mail = process.env.GLOBAL_MAIL || process.env.BRAWL_MAIL || global.mail || brawl.mail;
+const password = process.env.GLOBAL_PASS || process.env.BRAWL_PASS || global.password || brawl.password;
 
 const tokener = new TokenHandler(mail, password, 'https://developer.brawlstars.com/api');
 
