@@ -1,7 +1,8 @@
-const { extname, relative, join } = require('path');
+const { extname } = require('path');
 const fs = require('fs-nextra');
 
 const express = require('express');
+// eslint-disable-next-line new-cap
 const router = express.Router();
 
 const TokenHandler = require('../utils/tokener');
@@ -13,13 +14,12 @@ const password = process.env.GLOBAL_PASS || process.env.ROYALE_PASS || global.pa
 const tokener = new TokenHandler(mail, password, 'https://developer.clashroyale.com/api');
 
 /* Performing all the operations of loading the routes and obtaining the API key */
-(async() => {
-
+(async () => {
 	// Essential stuffs...
 	const apiURL = 'https://api.clashroyale.com/v1';
 	const token = await tokener.getToken();
 
-	console.log('Clash Royale API token is successfully fetched!')
+	console.log('Clash Royale API token is successfully fetched!');
 
 	// Loading all the routes
 	const files = await fs.scan('royale/routes', { filter: (stats, path) => stats.isFile() && extname(path) === '.js' });
@@ -27,8 +27,7 @@ const tokener = new TokenHandler(mail, password, 'https://developer.clashroyale.
 		// Using all the route files in the directory...
 		// Providing router instance, fetched token and the base API url...
 		require(_file)(router, token, apiURL);
-	})
-
+	});
 })();
 
 module.exports = router;

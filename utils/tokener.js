@@ -20,7 +20,7 @@ class Tokener {
 		// Getting the list of existing keys...
 		const { data: { keys: existingKeys } } = await axiosInstance.post('/apikey/list');
 		// Getting old key for current IP if available...
-		for (let i=0; i < existingKeys.length; i++) {
+		for (let i = 0; i < existingKeys.length; i++) {
 			const key = existingKeys[i];
 			if (key.cidrRanges.includes(ip)) {
 				this._token = `Bearer ${key.key}`;
@@ -29,11 +29,11 @@ class Tokener {
 		}
 		// Deleting old keys if none of them is for the current IP...
 		// Doing this because the supercell api limits to 10 tokens...
-		for (let i=0; i < existingKeys.length; i++) {
+		for (let i = 0; i < existingKeys.length; i++) {
 			await axiosInstance.post('/apikey/revoke', {
 				id: existingKeys[i].id
-			})
-		}		
+			});
+		}
 		// Creating new key...
 		const { data: keys } = await axiosInstance.post('/apikey/create', {
 			name: `New key - Date: ${this._getDate()}`,
@@ -49,9 +49,10 @@ class Tokener {
 		const login = await axiosInstance.post('/login', {
 			email: this.email,
 			password: this.password
-		})
-		const sessionDetails = login.headers["set-cookie"][0];
+		});
+		const sessionDetails = login.headers['set-cookie'][0];
 		const cookieFormatted = `${sessionDetails};game-api-url=${login.swaggerUrl};game-api-token=${login.temporaryAPIToken}`;
+		// eslint-disable-next-line require-atomic-updates
 		axiosInstance.defaults.headers.cookie = cookieFormatted;
 	}
 
