@@ -24,7 +24,7 @@ This service simply logins to the developer portal at run time and generate a ne
 
 ## HOSTING OVER HEROKU
 Thinking about a free platform to use this service, one can already think of **Heroku**, thus there is a `heroku` branch with things managed for the heroku Branch.
-Also [This article](https://blog.santoshb.com.np/articles/supercell-api) contains a simple walkthrough to help you host this service over heroku securely.
+Also [This article](https://santoshb.com.np/blog/how-to-use-supercell-api-with-dynamic-ip/) contains a simple walkthrough to help you host this service over heroku securely.
 
 ## CONTRIBUTING
 If you got any question, have a feature idea, found a bug etc. then you can simply [open an issue](https://github.com/TheLearneer/supercell-api/issues/new)!
@@ -34,4 +34,4 @@ If you rather got something updated and want the community to see what new you h
 ## CREDITS
 - [Brujah](https://github.com/brujah/nodejs-cocapi): For the original code that gave me the concept of how things work.
 
-> If you still are facing problem, then you can contact me at [Discord](https://discordapp.com/).. [Santosh#2138]
+> If you still are facing problem, then you can contact me at [Discord](https://discord.com/).. [Santosh#2138]
